@@ -4,10 +4,10 @@ with open("README.md", "r", encoding="utf-8") as f:
 __version__="0.0.0"
 REPO_NAME="ML_INTERN"
 AUTHOR_USER_NAME="Amir4786"
-CONCRETE_REPO="Concrete_CS"
+SRC_REPO="Concrete_CS"
 AUTHOR_EMAIL="er.a.khan47@gmail.com"
 setuptools.setup(
-    name= CONCRETE_REPO,
+    name= SRC_REPO,
     version=__version__,
     author=AUTHOR_USER_NAME,
     author_email=AUTHOR_EMAIL,
@@ -16,6 +16,6 @@ setuptools.setup(
     long_description_content="text/markdown",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
     project_urls={"Bug Tracker":f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues"},
-    package_dir={"","concrete"},
-    packages= setuptools.find_packages(where="concrete")
+    package_dir={"","src"},
+    packages= setuptools.find_packages(where="src")
 )
