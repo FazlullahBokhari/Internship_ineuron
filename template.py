@@ -15,7 +15,7 @@ list_of_files=[
     f"src/{package_name}/__init__.py",
     "tests/__init__.py",
     "tests/unit/__init__.py",
-    "tests/ingestion/__init__.py",
+    "tests/integration/__init__.py",
     "configs/config.yaml",
     "dvc.yaml",
     "params.yaml",
