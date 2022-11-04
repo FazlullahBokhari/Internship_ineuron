@@ -1,13 +1,13 @@
 import os
-import yaml
 import json
-import joblib
-from Concrete_CS import logger
+from src.Concrete_CS import logger
+from box import ConfigBox
 from box.exceptions import BoxValueError
-from box import ConfiBox
 from ensure import ensure_annotations
 from pathlib import Path
 from typing import Any
+import yaml
+import joblib
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path)->ConfigBox:
@@ -41,7 +41,7 @@ def load_json(path: Path)-> ConfigBox:
     logger.info(f"json file is loaded at {path}")
     return ConfigBox(content)
 
-@ensure_annotation
+@ensure_annotations
 def save_bin(data: Any, path: Path):
     joblib.dump(value=data, filename=path)
     logger.info(f"file is saved at {path}")
