@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 *.log
+artifacts/data_ingestion/Concrete_Data.xls
+Usersusername.condarc
