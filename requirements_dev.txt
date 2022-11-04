@@ -1,6 +1,19 @@
 pandas
+xlrd
 numpy
 sklearn
+matplotlib
+python-box
+seaborn
+notebook
+dvc
+pyYAML
+tqdm
+ensure==1.0.2
+joblib
+types-PyYAML
+scipy
+mlflow
 -e .
 
 ## dev requirements

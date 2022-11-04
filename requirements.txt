@@ -1,4 +1,17 @@
 pandas
+xlrd
 numpy
 sklearn
+matplotlib
+python-box==6.0.2
+seaborn
+notebook
+dvc
+pyYAML
+tqdm
+ensure==1.0.2
+joblib
+types-PyYAML
+scipy
+mlflow
 -e .
