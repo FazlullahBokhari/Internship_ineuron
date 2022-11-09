@@ -8,4 +8,8 @@ data_ingestion:
 data_validation:
   root_dir: artifacts/data_validation
   data_validation_path: artifacts/data_ingestion/Concrete_Data.xls
-  updated_data_validation_path: artifacts/data_validation
+  updated_data_validation_path: artifacts/data_validation/concrete_updated_data.csv
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_transformation_path: concrete_updated_data.csv

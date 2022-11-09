@@ -30,6 +30,7 @@ class ConfigurationManager:
         data_validation_config= DataValidationConfig(
                                 root_dir= Path(config.root_dir),
                                 data_validation_path= Path(config.data_validation_path),
+                                updated_data_validation_path= Path(config.updated_data_validation_path),
                                 simple_imputer_strategy=self.params.impute.params.strategy
                                 )
         return data_validation_config

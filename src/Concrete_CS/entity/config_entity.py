@@ -11,4 +11,5 @@ class DataIngestionConfig:
 class DataValidationConfig:
     root_dir: Path
     data_validation_path: Path
+    updated_data_validation_path: Path
     simple_imputer_strategy: str
