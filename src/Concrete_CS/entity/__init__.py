@@ -1,2 +1,3 @@
-from Concrete_CS.entity.config_entity import (DataIngestionConfig
+from Concrete_CS.entity.config_entity import (DataIngestionConfig,
+                                              DataValidationConfig,
                                              )
