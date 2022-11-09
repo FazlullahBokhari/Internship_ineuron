@@ -1,1 +1,38 @@
-key: value
+impute:
+  class: SimpleImputer
+  module: sklearn.impute
+  params:
+    strategy: "median"
+
+train_test_split:
+  class: train_test_split
+  module: sklearn.model_selection
+  params:
+    test_size: 0.2
+    random_state: 43
+
+grid_search:
+  class: GridSearchCV
+  module: sklearn.model_selection
+  params:
+    cv: [5,6,7,8,9,10]
+    verbose: 2
+  
+model_selection:
+  module_0:
+    class: LinearRegression
+    module: sklearn.linear_model
+    params:
+      fit_intercept: True
+    search_param_grid:
+      fit_intercept:
+      - true
+      - false
+  module_1:
+    class: RandomForestRegressor
+    module: sklearn.ensemble
+    params:
+      min_sample_leaf: 3
+    search_param_grid:
+      min_sample_leaf:
+      - 6
