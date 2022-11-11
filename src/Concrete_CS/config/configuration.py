@@ -1,7 +1,8 @@
 from Concrete_CS.constant import *
 from Concrete_CS.utils import read_yaml, create_directories
 from Concrete_CS.entity import (DataIngestionConfig,
-                                DataValidationConfig
+                                DataValidationConfig,
+                                DataTransformationConfig
                                 )
 from pathlib import Path
 import os
@@ -34,3 +35,18 @@ class ConfigurationManager:
                                 simple_imputer_strategy=self.params.impute.params.strategy
                                 )
         return data_validation_config
+    def get_data_transformation_config(self)-> DataTransformationConfig:
+        config= self.config.data_transformation
+        create_directories([config.root_dir])
+
+        data_transformation_config= DataTransformationConfig(
+                                root_dir= Path(config.root_dir),
+                                data_transformation_path= Path(config.data_transformation_path),
+                                train_dataset_features_path= Path(config.train_dataset_features_path),
+                                train_dataset_target_path= Path(config.train_dataset_target_path),
+                                test_dataset_features_path= Path(config.test_dataset_features_path),
+                                test_dataset_target_path= Path(config.test_dataset_target_path),
+                                test_size= float(self.params.train_test_split.params.test_size),
+                                random_state= int(self.params.train_test_split.params.random_state)
+                                )
+        return data_transformation_config
