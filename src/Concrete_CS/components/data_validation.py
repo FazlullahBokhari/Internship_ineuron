@@ -19,7 +19,7 @@ class DataValidation:
         data= pd.DataFrame(self.handeling_missing_attributes())
         logger.info("Trying to save the data in csv format in the given path.")
         data.to_csv(self.config.updated_data_validation_path)
-        logger.info("Tryring to read the data.")
-        new_data= pd.read_csv("concrete_updated_data.csv")
+        logger.info("Trying to read the data.")
+        new_data= pd.read_csv(self.config.updated_data_validation_path)
         logger.info("Here is your final saved data.")
         return new_data
