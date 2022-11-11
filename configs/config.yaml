@@ -12,4 +12,8 @@ data_validation:
 
 data_transformation:
   root_dir: artifacts/data_transformation
-  data_transformation_path: concrete_updated_data.csv
+  data_transformation_path: artifacts/data_validation/concrete_updated_data.csv
+  train_dataset_features_path: artifacts/data_transformation/train_dataset_features.csv
+  train_dataset_target_path: artifacts/data_transformation/train_dataset_target.csv
+  test_dataset_features_path: artifacts/data_transformation/test_dataset_features.csv
+  test_dataset_target_path: artifacts/data_transformation/test_dataset_target.csv

@@ -132,3 +132,7 @@ dmypy.json
 artifacts/data_ingestion/Concrete_Data.xls
 Usersusername.condarc
 concrete_updated_data.csv
+artifacts/data_transformation/test_dataset_features.csv
+artifacts/data_transformation/test_dataset_target.csv
+artifacts/data_transformation/train_dataset_features.csv
+artifacts/data_transformation/train_dataset_target.csv
