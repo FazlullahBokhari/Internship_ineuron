@@ -2,7 +2,8 @@ from Concrete_CS.constant import *
 from Concrete_CS.utils import read_yaml, create_directories
 from Concrete_CS.entity import (DataIngestionConfig,
                                 DataValidationConfig,
-                                DataTransformationConfig
+                                DataTransformationConfig,
+                                ModelTrainerConfig
                                 )
 from pathlib import Path
 import os
@@ -50,3 +51,26 @@ class ConfigurationManager:
                                 random_state= int(self.params.train_test_split.params.random_state)
                                 )
         return data_transformation_config
+     def get_model_trainer_config(self)-> ModelTrainerConfig:
+        config= self.config.model_trainer
+        create_directories([config.root_dir])
+
+        model_trainer_config= ModelTrainerConfig(
+                              root_dir= Path(config.root_dir),
+                              training_features_path= Path(config.training_features_path),
+                              training_target_path= Path(config.training_target_path),
+                              testing_features_path= Path(config.testing_features_path),
+                              testing_target_path= Path(config.testing_target_path),
+                              saved_file= Path(config.saved_file),
+                              n_estimators= list(self.params.randomized_search.params.n_estimators),
+                              max_features= list(self.params.randomized_search.params.max_features),
+                              max_depth= list(self.params.randomized_search.params.max_depth),
+                              min_samples_split= list(self.params.randomized_search.params.min_samples_split),
+                              min_samples_leaf= list(self.params.randomized_search.params.min_samples_leaf),
+                              scoring= str(self.params.randomized_search.scoring),
+                              n_iter= int(self.params.randomized_search.n_iter),
+                              cv= int(self.params.randomized_search.cv),
+                              verbose= int(self.params.randomized_search.verbose),
+                              random_state= int(self.params.randomized_search.random_state)
+                              )
+        return model_trainer_config

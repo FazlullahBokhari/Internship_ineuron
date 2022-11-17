@@ -24,3 +24,22 @@ class DataTransformationConfig:
     test_dataset_target_path: Path
     test_size: float
     random_state: int
+
+@dataclass(frozen= True)
+class ModelTrainerConfig:
+    root_dir: Path
+    training_features_path: Path
+    training_target_path: Path
+    testing_features_path: Path
+    testing_target_path: Path
+    saved_file: Path
+    n_estimators: list
+    max_features: list
+    max_depth: list
+    min_samples_split: list
+    min_samples_leaf: list
+    scoring: str
+    n_iter: int
+    cv: int
+    verbose: int
+    random_state: int

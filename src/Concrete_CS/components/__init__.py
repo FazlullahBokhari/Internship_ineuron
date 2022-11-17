@@ -1,3 +1,4 @@
 from Concrete_CS.components.data_ingestion import DataIngestion
 from Concrete_CS.components.data_validation import DataValidation
 from Concrete_CS.components.data_transformation import DataTransformation
+from Concrete_CS.components.model_trainer import ModelTrainer
