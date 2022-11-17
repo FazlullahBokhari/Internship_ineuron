@@ -36,3 +36,18 @@ model_selection:
     search_param_grid:
       min_sample_leaf:
       - 6
+
+randomized_search:
+  class: RandomizedSearchCV
+  module: sklearn.model_selection
+  params:
+    n_estimators: [100,200,300,400,500,600,700,750,800,850,900,950,1000]
+    max_features: ["auto", "sqrt"]
+    max_depth: [4,5,10,15,20,25,30,35,40,50,60,75,100,110,120,150]
+    min_samples_split: [2,5,10,15,20,50,100]
+    min_samples_leaf: [2,5,4,9,6,30,33,50,75,100]
+  scoring: 'neg_mean_squared_error'
+  n_iter: 10
+  cv: 5
+  verbose: 2
+  random_state: 43
