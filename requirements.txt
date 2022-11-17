@@ -1,6 +1,12 @@
+Flask
+gunicorn
+Jinja2
+Werkzeug
+scipy
 pandas
 xlrd
 numpy
+scikit-learn
 sklearn
 matplotlib
 python-box==6.0.2
