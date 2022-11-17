@@ -51,7 +51,7 @@ class ConfigurationManager:
                                 random_state= int(self.params.train_test_split.params.random_state)
                                 )
         return data_transformation_config
-     def get_model_trainer_config(self)-> ModelTrainerConfig:
+    def get_model_trainer_config(self)-> ModelTrainerConfig:
         config= self.config.model_trainer
         create_directories([config.root_dir])
 
