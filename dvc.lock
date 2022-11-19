@@ -1,0 +1,90 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/Concrete_CS/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: configs/config.yaml
+      md5: 04f186e580f068e86050d827a6fd80b3
+      size: 1400
+    - path: src/Concrete_CS/pipeline/stage_01_data_ingestion.py
+      md5: 098697531919c823850c007f654de456
+      size: 679
+    outs:
+    - path: artifacts/data_ingestion/Concrete_Data.xls
+      md5: 75292ff5ba068483a60e67fc444baaed
+      size: 124928
+  data_validation:
+    cmd: python src/Concrete_CS/pipeline/stage_02_data_validation.py
+    deps:
+    - path: artifacts/data_ingestion/Concrete_Data.xls
+      md5: 75292ff5ba068483a60e67fc444baaed
+      size: 124928
+    - path: configs/config.yaml
+      md5: 04f186e580f068e86050d827a6fd80b3
+      size: 1400
+    - path: params.yaml
+      md5: e1af7923c7c20e0d3ae939236355b0a1
+      size: 1207
+    - path: src/Concrete_CS/pipeline/stage_02_data_validation.py
+      md5: ad6882a61448a53cf23d62676a170b73
+      size: 651
+    outs:
+    - path: artifacts/data_validation/concrete_updated_data.csv
+      md5: 3c8ae19a6ea5e7c7d74f6f92ba337e59
+      size: 63222
+  data_transformation:
+    cmd: python src/Concrete_CS/pipeline/stage_03_data_transformation.py
+    deps:
+    - path: artifacts/data_validation/concrete_updated_data.csv
+      md5: 3c8ae19a6ea5e7c7d74f6f92ba337e59
+      size: 63222
+    - path: configs/config.yaml
+      md5: 04f186e580f068e86050d827a6fd80b3
+      size: 1400
+    - path: params.yaml
+      md5: e1af7923c7c20e0d3ae939236355b0a1
+      size: 1207
+    - path: src/Concrete_CS/pipeline/stage_03_data_transformation.py
+      md5: 3ea2d66f50f6170077edb91e07b5f67b
+      size: 689
+    outs:
+    - path: artifacts/data_transformation/test_dataset_features.csv
+      md5: 5618420fde62fe0ba0a7f5f42ed5e3c1
+      size: 10134
+    - path: artifacts/data_transformation/test_dataset_target.csv
+      md5: 8dc1a7cf86e1e5b2c83a2f4417ee8e24
+      size: 3642
+    - path: artifacts/data_transformation/train_dataset_features.csv
+      md5: 276ce6a02faa928972ac035d40ebf45b
+      size: 39314
+    - path: artifacts/data_transformation/train_dataset_target.csv
+      md5: 60fe5986b1f0d7e02e08c018e386c8ec
+      size: 14296
+  model_trainer:
+    cmd: python src/Concrete_CS/pipeline/stage_04_model_trainer.py
+    deps:
+    - path: artifacts/data_transformation/test_dataset_features.csv
+      md5: 5618420fde62fe0ba0a7f5f42ed5e3c1
+      size: 10134
+    - path: artifacts/data_transformation/test_dataset_target.csv
+      md5: 8dc1a7cf86e1e5b2c83a2f4417ee8e24
+      size: 3642
+    - path: artifacts/data_transformation/train_dataset_features.csv
+      md5: 276ce6a02faa928972ac035d40ebf45b
+      size: 39314
+    - path: artifacts/data_transformation/train_dataset_target.csv
+      md5: 60fe5986b1f0d7e02e08c018e386c8ec
+      size: 14296
+    - path: configs/config.yaml
+      md5: 04f186e580f068e86050d827a6fd80b3
+      size: 1400
+    - path: params.yaml
+      md5: e1af7923c7c20e0d3ae939236355b0a1
+      size: 1207
+    - path: src/Concrete_CS/pipeline/stage_04_model_trainer.py
+      md5: 1e36b1fd03bc13a513445b27ab865c51
+      size: 635
+    outs:
+    - path: artifacts/model_trainer/concrete_model.pkl
+      md5: b1d0358db1b373bdcacfe982d780843a
+      size: 5595896
