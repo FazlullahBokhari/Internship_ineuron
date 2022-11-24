@@ -13,16 +13,16 @@ class ModelTrainer:
     def __init__(self, config: ModelTrainerConfig):
         self.config= config
         logger.info("Uploading testing data...")
-        self.testing_features= pd.read_csv(self.config.testing_features_path)
+        self.testing_features= pd.read_csv(self.config.testing_features_path).iloc[:,1:]
         self.real_values= pd.read_csv(self.config.testing_target_path).iloc[:,1]
         logger.info("test data uploaded!")
     def load_training_data(self):
         logger.info("uploading training data...")
-        features_set= pd.read_csv(self.config.training_features_path)
+        features_set= pd.read_csv(self.config.training_features_path).iloc[:,1:]
         logger.info("training data uploaded!")
-        target_set= pd.read_csv(self.config.training_target_path)
+        target_set= pd.read_csv(self.config.training_target_path).iloc[:,1]
         logger.info("with pandas create data for training the model.")
-        features_set[target_set.columns]=target_set
+        features_set["concrete_compressive_strength_MPa"]=target_set
         logger.info("training data created!")
         return features_set
     def by_linear_regression(self):
@@ -34,6 +34,8 @@ class ModelTrainer:
         squared_error= mean_squared_error(predicted_values, self.real_values)
         logger.info("model error...")
         error= np.sqrt(squared_error)
+        logger.info(f"The error came out to be: {error}%")
+        logger.info(f"The accuracy of the model is: {100-error}%")
         return linear_reg
     def by_random_forest(self):
         logger.info("model training by Random Forest")
