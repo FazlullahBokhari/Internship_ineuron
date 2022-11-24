@@ -1,4 +1,6 @@
 flask
+jsonify
+requests
 gunicorn
 Jinja2
 Werkzeug

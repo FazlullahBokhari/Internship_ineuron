@@ -11,17 +11,17 @@
         <form action="{{url_for('predict')}}" method="post">
             <h2 style="color:rgba(255, 0, 0, 0.906)">Fill the following values to get your Concrete compressive strength</h2>
             <h3 style="color:cornflowerblue"><i>Units are given make sure you give the right units.</i></h3>
-            <h3>PM2.5</h3><input id='first' name='PM2.5' required='required'>
-            <h3>PM10</h3><input id='second' name='PM10' required='required'>
-            <h3>NO2</h3><input id='third' name='NO2' required='required'>
-            <h3>NH3</h3><input id='fourth' name='NH3' required='required'>
-            <h3>SO2</h3><input id='fifth' name='SO2' required='required'>
-            <h3>CO</h3><input id='sixth' name='CO' required='required'>
-            <h3>Ozone</h3><input id='seventh' name='Ozone' required='required'>
-            <br><br><button id='sub' type='submit'>Calculate the avg. AQI of last 24hrs</button>
+            <h3>CEMENT</h3><input id='first' name='Cement (kg in a m^3 mixture)' required='required'>
+            <h3>BLAST_FURNACE_SLAG</h3><input id='second' name='Blast Furnace Slag (kg in a m^3 mixture)' required='required'>
+            <h3>FLY_ASH</h3><input id='third' name='Fly Ash (kg in a m^3 mixture)' required='required'>
+            <h3>WATER</h3><input id='fourth' name='Water (kg in a m^3 mixture)' required='required'>
+            <h3>SUPERPLASTICIZER</h3><input id='fifth' name='Superplasticizer (kg in a m^3 mixture)' required='required'>
+            <h3>COARSE_AGGREGATE</h3><input id='sixth' name='Coarse Aggregate (kg in a m^3 mixture)' required='required'>
+            <h3>FINE_AGGREGATE</h3><input id='seventh' name='Fine Aggregate (kg in a m^3 mixture)' required='required'>
+            <h3>AGE</h3><input id='eight' name='Age (Days)' required='required'>
+            <br><br><button id='sub' type='submit'>Click to get Compressive Strength (MPa)</button>
         </form>
         <h2 style="color: rgb(255, 34, 0)">{{prediction_text}}</h2>
-        <h2 style="color: maroon">{{status}}</h2>
     </div>
 </body>
 </center>
