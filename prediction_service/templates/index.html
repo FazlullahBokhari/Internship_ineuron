@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="view point" content="width=device-width, initial-scale=1.0">
+    <title>Concrete Compressive Strength</title>
+</head>
+<center>
+<body>
+    <div style="color:darkblue">
+        <form action="{{url_for('predict')}}" method="post">
+            <h2 style="color:rgba(255, 0, 0, 0.906)">Fill the following values to get your Concrete compressive strength</h2>
+            <h3 style="color:cornflowerblue"><i>Units are given make sure you give the right units.</i></h3>
+            <h3>PM2.5</h3><input id='first' name='PM2.5' required='required'>
+            <h3>PM10</h3><input id='second' name='PM10' required='required'>
+            <h3>NO2</h3><input id='third' name='NO2' required='required'>
+            <h3>NH3</h3><input id='fourth' name='NH3' required='required'>
+            <h3>SO2</h3><input id='fifth' name='SO2' required='required'>
+            <h3>CO</h3><input id='sixth' name='CO' required='required'>
+            <h3>Ozone</h3><input id='seventh' name='Ozone' required='required'>
+            <br><br><button id='sub' type='submit'>Calculate the avg. AQI of last 24hrs</button>
+        </form>
+        <h2 style="color: rgb(255, 34, 0)">{{prediction_text}}</h2>
+        <h2 style="color: maroon">{{status}}</h2>
+    </div>
+</body>
+</center>
+</html>
