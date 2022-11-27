@@ -1,5 +1,11 @@
 Flask
 streamlit
-scikit-learn
-sklearn
 gunicorn
+Jinja2
+Werkzeug
+scipy
+scikit-learn
+jsonify
+sklearn
+requests
+numpy
